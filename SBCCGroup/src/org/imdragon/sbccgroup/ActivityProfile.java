@@ -145,7 +145,7 @@ public class ActivityProfile extends Activity {
 	
 	// END Google Play Services connection callbacks section //
 	public void toEvents(View v) throws IOException {
-		startActivity(new Intent(this, ActivityEvent.class));
+		startActivity(new Intent(this, EventswipeActivity.class));
 	}
 
 }

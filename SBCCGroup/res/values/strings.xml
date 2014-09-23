@@ -32,6 +32,9 @@
     <string name="checkinOff">Done</string>
     <string name="title_activity_current_event">CurrentEventActivity</string>
     <string name="hello_world">Hello world!</string>
+
     <color name="white">#FFFFFF</color>
+
+    <string name="title_activity_eventswipe">eventSwipe</string>
 
 </resources>
