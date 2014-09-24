@@ -22,7 +22,7 @@ public class EventswipeActivity extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.eventswipe);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();

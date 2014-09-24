@@ -20,12 +20,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.savagelook.android.UrlJsonAsyncTask;
@@ -47,12 +45,12 @@ public class LoginActivity extends Activity {
 		mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 	}
 
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.main, menu);
-//		return true;
-//	}
+	// @Override
+	// public boolean onCreateOptionsMenu(Menu menu) {
+	// // Inflate the menu; this adds items to the action bar if it is present.
+	// getMenuInflater().inflate(R.menu.main, menu);
+	// return true;
+	// }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -60,6 +58,7 @@ public class LoginActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+
 		if (id == R.id.action_settings) {
 			return true;
 		}
@@ -67,10 +66,10 @@ public class LoginActivity extends Activity {
 	}
 
 	public void loginPressed(View v) {
-//		 EditText usernameField = (EditText) findViewById(R.id.usernameText);
-//		 mUsername = usernameField.getText().toString();
-//		 EditText passwordField = (EditText) findViewById(R.id.passwordText);
-//		 mPassword = passwordField.getText().toString();
+		// EditText usernameField = (EditText) findViewById(R.id.usernameText);
+		// mUsername = usernameField.getText().toString();
+		// EditText passwordField = (EditText) findViewById(R.id.passwordText);
+		// mPassword = passwordField.getText().toString();
 		// enable above if LIVE
 		// below only for TESTING
 

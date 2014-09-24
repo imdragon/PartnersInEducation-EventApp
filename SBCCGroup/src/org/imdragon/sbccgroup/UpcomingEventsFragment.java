@@ -1,48 +1,141 @@
 package org.imdragon.sbccgroup;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
-public class UpcomingEventsFragment extends Fragment {
+public class UpcomingEventsFragment extends Fragment implements
+		OnItemClickListener {
 
-	private String[] otherEventsArray;
 	// this array will hold the Other Events, so put them in there
-	private String[] nextEventArray = new String[1];
+	// private String[] nextEvents = new String[1];
+	private ArrayList<String> upcomingEvents = new ArrayList<String>();
 	// this one holds the next one, made it size 1 so it won't do funny things
-	private ArrayAdapter<String> nEventAdapter, oEventAdapter;
-	private ListView nEventView, oEventView;
+	private ArrayAdapter<String> nEventAdapter;
+	private ListView nEventView;
+	private View rootView;
+	private String EVENTS_URL = "http://pieapi.us.to:3000/events.json";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
-		View rootView = inflater.inflate(R.layout.fragment_upcoming_events,
+		rootView = inflater.inflate(R.layout.fragment_upcoming_events,
 				container, false);
+		loadEventsFromAPI(EVENTS_URL);
 
-		// populating next
-		// **************** Comment out the following line so it doesn't
-				// overwrite your array! ****************
-		nextEventArray = getResources().getStringArray(R.array.nextEventArray);
-		nEventAdapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_1, nextEventArray);
-		nEventView = (ListView) rootView.findViewById(R.id.nextEventList);
-		nEventView.setAdapter(nEventAdapter);
-
-		// populating other
-		// **************** Comment out the following line so it doesn't
-				// overwrite your array! ****************
-		otherEventsArray = getResources().getStringArray(
-				R.array.otherEventsArray);
-		oEventAdapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_1, otherEventsArray);
-		oEventView = (ListView) rootView.findViewById(R.id.otherEventsList);
-
-		oEventView.setAdapter(oEventAdapter);
 		return rootView;
 	}
+
+	private void loadEventsFromAPI(String url) {
+		EventswipeActivity activity = (EventswipeActivity) getActivity();
+		GetEventsTask task = new GetEventsTask(activity);
+		task.setMessageLoading("Loading events data...");
+		task.execute(url);
+	}
+
+	private class GetEventsTask extends GetTask {
+		public GetEventsTask(Context context) {
+			super(context);
+		}
+
+		@Override
+		protected void onPostExecute(JSONObject json) {
+			try {
+				// put events in lists
+				try {
+					Log.e("ClientProtocol", "Passed JSON = " + json.toString());
+
+					// sort events
+					SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy",
+							Locale.US);
+					JSONArray events;
+					events = json.getJSONArray("data");
+
+					JSONObject event;
+					Date eventDate;
+					Calendar cal = Calendar.getInstance();
+					Calendar eventCal = Calendar.getInstance();
+					int eventsLength = events.length();
+					for (int ndx = 0; ndx < eventsLength; ndx++) {
+						event = events.getJSONObject(ndx);
+						eventDate = sdf.parse(event.getString("date"));
+						eventCal.setTime(eventDate);
+						if (cal.equals(eventCal) || cal.before(eventCal)) {
+							Log.e("ClientProtocol",
+									"Upcoming event: " + sdf.format(eventDate));
+							upcomingEvents.add(event.getString("title") + "  ("
+									+ event.getString("date") + ")");
+						}
+					}
+
+					nEventAdapter = new ArrayAdapter<String>(getActivity(),
+							android.R.layout.simple_list_item_1, upcomingEvents);
+					nEventView = (ListView) rootView
+							.findViewById(R.id.nextEventList);
+					nEventView.setAdapter(nEventAdapter);
+					nEventView.setOnItemClickListener(new OnItemClickListener() {
+			            @Override
+			            public void onItemClick(AdapterView<?> parent, View view, int position,
+			                    long id) {
+			            	
+			            	
+			            	//launch intent from here for event activity you can delete what's below if you want
+			            	String test = upcomingEvents.get(position).toString();
+			        		Toast.makeText(getActivity(), test, Toast.LENGTH_SHORT).show();
+			        
+			               
+			            }
+			        });
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (Exception e) {
+				Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG)
+						.show();
+			} finally {
+				super.onPostExecute(json);
+			}
+		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+//	@Override
+//	public void onItemClick(AdapterView<?> parent, View view, int position,
+//			long id) {
+//		String test = upcomingEvents.get(position).toString();
+//		String test2 = nEventAdapter.getItem(position).toString();
+//		Toast.makeText(getActivity(), test2, Toast.LENGTH_SHORT).show();
+//
+//	}
 }
