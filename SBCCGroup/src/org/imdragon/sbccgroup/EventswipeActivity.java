@@ -16,7 +16,7 @@ public class EventswipeActivity extends FragmentActivity implements
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	// Tab titles
-	private String[] tabs = { "Upcoming", "Past"};
+	private String[] tabs = { "Upcoming", "Past" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +30,13 @@ public class EventswipeActivity extends FragmentActivity implements
 
 		viewPager.setAdapter(mAdapter);
 		actionBar.setHomeButtonEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);		
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Adding Tabs
 		for (String tab_name : tabs) {
 			actionBar.addTab(actionBar.newTab().setText(tab_name)
 					.setTabListener(this));
+
 		}
 
 		/**

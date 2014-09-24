@@ -22,9 +22,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		case 1:
 			// Past Events fragment activity
 			return new PastEventsFragment();
-//		case 2:
-//			// Third fragment activity
-//			return new ThirdFragment();
 		}
 
 		return null;

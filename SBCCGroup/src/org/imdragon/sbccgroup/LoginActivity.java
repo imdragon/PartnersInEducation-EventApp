@@ -67,16 +67,16 @@ public class LoginActivity extends Activity {
 	}
 
 	public void loginPressed(View v) {
-		 EditText usernameField = (EditText) findViewById(R.id.usernameText);
-		 mUsername = usernameField.getText().toString();
-		 EditText passwordField = (EditText) findViewById(R.id.passwordText);
-		 mPassword = passwordField.getText().toString();
+//		 EditText usernameField = (EditText) findViewById(R.id.usernameText);
+//		 mUsername = usernameField.getText().toString();
+//		 EditText passwordField = (EditText) findViewById(R.id.passwordText);
+//		 mPassword = passwordField.getText().toString();
 		// enable above if LIVE
 		// below only for TESTING
 
 		// ************** DELETE BELOW WHEN LIVE! **************
-//		mUsername = "test_volunteer22";
-//		mPassword = "password";
+		mUsername = "test_volunteer22";
+		mPassword = "password";
 		// ************** DELETE ABOVE WHEN LIVE! **************
 
 		if (mUsername.length() == 0 || mPassword.length() == 0) {
