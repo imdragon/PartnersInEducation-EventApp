@@ -45,7 +45,7 @@ public class ActivityProfile extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.profilemenu, menu);
 		return true;
 	}
 
@@ -133,10 +133,10 @@ public class ActivityProfile extends Activity {
     					TextView addressfield = (TextView) findViewById(R.id.vAddress);
     					StringBuilder addressString = new StringBuilder();
     					addressString.append(json.getString("Street1"));
-    					addressString.append(","+" \n");addressString.append(json.getString("City1"));
+    					addressString.append(" \n");addressString.append(json.getString("City1"));
     					
-    					addressString.append(json.getString("State1"));
-    					addressString.append(json.getString("ZipCode1"));
+    					addressString.append(", " +json.getString("State1"));
+    					addressString.append(" "+json.getString("ZipCode1"));
     					addressfield.setText(addressString.toString());
     			
     			// set other fields to empty values because

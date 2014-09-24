@@ -9,7 +9,7 @@
         android:required="true" />
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="16"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -35,7 +35,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityProfile" >
+        <activity android:name=".ActivityProfile"  android:label="@string/profileHeader">
+
         </activity>
         <activity android:name=".MainActivity" >
         </activity>
@@ -52,7 +53,7 @@
         </activity>
         <activity
             android:name=".EventswipeActivity"
-            android:label="@string/title_activity_eventswipe" >
+            android:label="@string/title_activity_eventswipe" android:parentActivityName="org.imdragon.sbccgroup.ActivityProfile">
         </activity>
     </application>
 

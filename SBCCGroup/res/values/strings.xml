@@ -41,7 +41,7 @@
     <color name="pieYellow">#E7C75B</color>
 
     <!-- Events Strings -->
-    <string name="title_activity_eventswipe">eventSwipe</string>
+    <string name="title_activity_eventswipe">Events</string>
     <string name="upcomingTab">Upcoming</string>
     <string name="nextEvent">Next Event</string>
     <string name="pastEvents">Past Events</string>
