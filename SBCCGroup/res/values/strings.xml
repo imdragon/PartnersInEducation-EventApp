@@ -29,6 +29,8 @@
     <string name="loginButton">Login</string>
     <!-- End strings for Login layout -->
 
+<string name="checkinButton">Check In</string>
+<string name="picHolder">Event Picture Here</string>
     <string name="checkinOn">I\'m here!</string>
     <string name="checkinOff">Done</string>
     <string name="title_activity_current_event">CurrentEventActivity</string>
@@ -47,19 +49,21 @@
     <string name="pastEvents">Past Events</string>
     <string name="otherEvents">Other Events</string>
     <string name="pastTab">Past</string>
-    <!--  Info Strings -->
-	<string name="infoManager">Your Volunteer Manager</string>
-	<string name="yourManager">Ashley Cortez\nVolunteer Manager - West SB\ncce@sbceo.org\n805-xxx-xxxx \ \  ext. xxxx</string>
-	<string name="partners">Partners in Education</string>
-	<string name="partnersWebsite">http://partners.sbceo.org/</string>
-	<string name="coordinator">Lucille Ramirez\nVolunteer Program Coordinator\nlucille@sbceo.org\n805-964-4710 \ \  ext. 4403</string>
+    <!-- Info Strings -->
+    <string name="infoManager">Your Volunteer Manager</string>
+    <string name="yourManager">Ashley Cortez\nVolunteer Manager - West SB\ncce@sbceo.org\n805-xxx-xxxx \ \  ext. xxxx</string>
+    <string name="partners">Partners in Education</string>
+    <string name="partnersWebsite">http://partners.sbceo.org/</string>
+    <string name="coordinator">Lucille Ramirez\nVolunteer Program Coordinator\nlucille@sbceo.org\n805-964-4710 \ \  ext. 4403</string>
 
     <!-- End Events Strings section -->
+
 
     <!-- Unused string but just in case below -->
     <string name="passwordHint">Enter password</string>
     <string name="usernameHint">Enter username</string>
     <string name="gpsOutput">Your GPS Coordinates</string>
     <string name="getGPS">Get Coordinates</string>
+    <string name="title_activity_event_details">EventDetails</string>
 
 </resources>
