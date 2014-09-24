@@ -12,7 +12,7 @@ public class Survey implements Serializable {
 	private final String question2 = "Would you recommend?";
 	private String answer2;
 	private String commentBox;
-	private int surveyID;
+//	private int surveyID;
 	
 	public void setAnswer1(String answer1) {
 		this.answer1 = answer1;

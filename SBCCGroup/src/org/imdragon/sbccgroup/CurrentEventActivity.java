@@ -18,7 +18,7 @@ import android.widget.ToggleButton;
 public class CurrentEventActivity extends Activity {
 
 
-	private String stoppingTime = "";
+//	private String stoppingTime = "";
 	private String startingTime = "";
 	private ToggleButton tgbutton;
 	@SuppressWarnings("unused")
