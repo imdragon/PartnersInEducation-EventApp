@@ -41,12 +41,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/eventTitle"
         android:layout_centerHorizontal="true"
-        android:background="@color/pieBlue"
+        android:background="@drawable/roundshapebtn"
         android:minWidth="150dip"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:text="@string/checkinButton"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/dateLine"

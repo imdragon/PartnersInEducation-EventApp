@@ -34,23 +34,6 @@
         <requestFocus />
     </EditText>
 
-    <ImageButton
-        android:id="@+id/loginButton"
-        android:contentDescription="@string/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:background="@color/white"
-        android:cropToPadding="false"
-        android:onClick="loginPressed"
-        android:scaleType="fitCenter"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        android:src="@drawable/loginbutton" />
-
     <ImageView
         android:id="@+id/imageView1"
         android:contentDescription="@string/usernameHint"
@@ -61,6 +44,17 @@
         android:layout_marginBottom="18dp"
         android:src="@drawable/logo" />
 
- 
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/roundshapebtn"
+        android:text="@string/loginButton"
+        android:onClick="loginPressed"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
 </RelativeLayout>
